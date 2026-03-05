@@ -713,25 +713,8 @@ export default function App() {
       {/* ── FOOTER ───────────────────────────────────────────── */}
       <footer
         data-ocid="footer.section"
-        className="gradient-bg py-6 px-4 text-center"
-      >
-        <p className="text-white/90 text-sm">
-          © {new Date().getFullYear()} Bathula Gayathri. All rights reserved.
-        </p>
-        <p className="text-white/55 text-xs mt-1">
-          Built with{" "}
-          <a
-            href={`https://caffeine.ai?utm_source=caffeine-footer&utm_medium=referral&utm_content=${encodeURIComponent(
-              typeof window !== "undefined" ? window.location.hostname : "",
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:text-white transition-colors"
-          >
-            caffeine.ai
-          </a>
-        </p>
-      </footer>
+        className="gradient-bg py-4 px-4 text-center"
+      />
     </div>
   );
 }
