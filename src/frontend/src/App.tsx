@@ -19,7 +19,6 @@ import {
   Mail,
   MapPin,
   MessageSquare,
-  Phone,
   Star,
   Users,
   Wrench,
@@ -423,7 +422,7 @@ export default function App() {
             <Mail size={18} />
           </a>
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/gayathribathula"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white hover:text-violet-DEFAULT transition-all"
@@ -432,7 +431,7 @@ export default function App() {
             <Github size={18} />
           </a>
           <a
-            href="https://linkedin.com/in/yourusername"
+            href="https://www.linkedin.com/in/bathula-gayatri-5a4994385/"
             target="_blank"
             rel="noopener noreferrer"
             className="w-10 h-10 rounded-full bg-white/15 border border-white/25 flex items-center justify-center text-white hover:bg-white hover:text-violet-DEFAULT transition-all"
@@ -687,12 +686,6 @@ export default function App() {
             </p>
             <div className="flex flex-col gap-4">
               <ContactRow
-                icon={<Phone size={18} />}
-                label="Phone"
-                value="+91 8309773664"
-                href="tel:+918309773664"
-              />
-              <ContactRow
                 icon={<Mail size={18} />}
                 label="Email"
                 value="gbathula55@gmail.com"
@@ -701,15 +694,15 @@ export default function App() {
               <ContactRow
                 icon={<Github size={18} />}
                 label="GitHub"
-                value="github.com/yourusername"
-                href="https://github.com/yourusername"
+                value="github.com/gayathribathula"
+                href="https://github.com/gayathribathula"
                 external
               />
               <ContactRow
                 icon={<Linkedin size={18} />}
                 label="LinkedIn"
-                value="linkedin.com/in/yourusername"
-                href="https://linkedin.com/in/yourusername"
+                value="linkedin.com/in/bathula-gayatri-5a4994385"
+                href="https://www.linkedin.com/in/bathula-gayatri-5a4994385/"
                 external
               />
             </div>
