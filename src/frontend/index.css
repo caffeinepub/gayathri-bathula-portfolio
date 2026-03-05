@@ -1,0 +1,236 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.625rem;
+
+    /* Dark mode — deep violet-tinted near-black base */
+    --background: 0.1 0.02 285;
+    --foreground: 0.95 0.01 285;
+    --card: 0.14 0.025 285;
+    --card-foreground: 0.92 0.01 285;
+    --popover: 0.14 0.025 285;
+    --popover-foreground: 0.92 0.01 285;
+    --primary: 0.65 0.22 290;
+    --primary-foreground: 0.1 0 0;
+    --secondary: 0.18 0.03 285;
+    --secondary-foreground: 0.88 0.01 285;
+    --muted: 0.2 0.02 285;
+    --muted-foreground: 0.6 0.04 285;
+    --accent: 0.65 0.22 345;
+    --accent-foreground: 0.1 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 0.28 0.025 285;
+    --input: 0.28 0.025 285;
+    --ring: 0.65 0.22 290;
+
+    /* Gradient stops — brighter for dark bg */
+    --grad-violet: oklch(0.65 0.22 290);
+    --grad-rose: oklch(0.72 0.22 345);
+
+    --chart-1: 0.646 0.222 290;
+    --chart-2: 0.6 0.22 345;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.12 0.025 285;
+    --sidebar-foreground: 0.92 0.01 285;
+    --sidebar-primary: 0.65 0.22 290;
+    --sidebar-primary-foreground: 0.1 0 0;
+    --sidebar-accent: 0.18 0.03 285;
+    --sidebar-accent-foreground: 0.88 0.01 285;
+    --sidebar-border: 0.28 0.025 285;
+    --sidebar-ring: 0.65 0.22 290;
+  }
+
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Outfit", "Plus Jakarta Sans", sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ─── Gradient utilities ─── */
+.gradient-text {
+  background: linear-gradient(135deg, oklch(0.65 0.22 290), oklch(0.78 0.24 345));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, oklch(0.65 0.22 290), oklch(0.78 0.24 345));
+}
+
+.gradient-border {
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, oklch(0.65 0.22 290), oklch(0.78 0.24 345));
+  z-index: -1;
+}
+
+/* ─── 3D Flip Card ─── */
+.flip-card {
+  perspective: 1200px;
+  height: 340px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Mobile tap-to-flip */
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* ─── Section heading bar ─── */
+.section-title-bar {
+  display: inline-block;
+  position: relative;
+  padding-bottom: 0.25rem;
+}
+.section-title-bar::after {
+  content: "";
+  display: block;
+  height: 3px;
+  width: 60%;
+  margin-top: 0.4rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, oklch(0.65 0.22 290), oklch(0.78 0.24 345));
+}
+
+/* ─── Navigation ─── */
+.nav-glass {
+  background: rgba(10, 8, 20, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid oklch(0.28 0.025 285);
+}
+
+/* ─── Hero mesh background ─── */
+.hero-bg {
+  background:
+    radial-gradient(ellipse at 20% 50%, oklch(0.35 0.22 290 / 0.85) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, oklch(0.45 0.24 345 / 0.75) 0%, transparent 55%),
+    radial-gradient(ellipse at 60% 80%, oklch(0.28 0.2 280 / 0.65) 0%, transparent 50%),
+    linear-gradient(135deg, oklch(0.1 0.05 290), oklch(0.18 0.08 340));
+}
+
+/* ─── Profile photo gradient ring ─── */
+.photo-ring {
+  padding: 4px;
+  background: linear-gradient(135deg, oklch(0.9 0.12 60), oklch(0.72 0.22 345), oklch(0.65 0.22 290));
+  border-radius: 50%;
+}
+
+/* ─── Timeline dot ─── */
+.timeline-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, oklch(0.65 0.22 290), oklch(0.78 0.24 345));
+  flex-shrink: 0;
+  box-shadow: 0 0 0 4px oklch(0.18 0.04 290);
+}
+
+/* ─── Skill badge hover ─── */
+.skill-badge {
+  background: linear-gradient(135deg, oklch(0.65 0.22 290 / 0.15), oklch(0.72 0.22 345 / 0.15));
+  border: 1px solid oklch(0.65 0.22 290 / 0.35);
+  color: oklch(0.78 0.14 290);
+  transition: all 0.2s ease;
+}
+.skill-badge:hover {
+  background: linear-gradient(135deg, oklch(0.65 0.22 290), oklch(0.78 0.24 345));
+  color: white;
+  border-color: transparent;
+  transform: translateY(-2px);
+}
+
+/* ─── Certification card ─── */
+.cert-card {
+  background: linear-gradient(135deg, oklch(0.16 0.03 285), oklch(0.13 0.02 285));
+  border: 1px solid oklch(0.28 0.025 285);
+  transition: all 0.25s ease;
+}
+.cert-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px oklch(0.65 0.22 290 / 0.25);
+}
+
+/* ─── Contact card ─── */
+.contact-card {
+  background: linear-gradient(135deg, oklch(0.15 0.03 285), oklch(0.13 0.025 345));
+  border: 1px solid oklch(0.28 0.025 285);
+}
+
+/* ─── Glow shadow ─── */
+.shadow-glow {
+  box-shadow: 0 0 20px oklch(0.65 0.22 290 / 0.4);
+}
+
+/* ─── Scroll indicator ─── */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(8px); }
+}
+.bounce-slow {
+  animation: bounce-slow 2s ease-in-out infinite;
+}
+
+/* ─── Fade-in animation ─── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+.delay-600 { animation-delay: 0.6s; }
